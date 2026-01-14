@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KINGSMEN</title>
+    <link rel="stylesheet" href="opening.css">
+    <link rel="stylesheet" href="load.css"> 
+  </head>
+  <body>
+    <div id="top-loader"></div>
+    <a href="home.html">
+      <div class="km">
+        <button>ENTER</button>
+      </div>
+    </a>
+
+    <script>
+    const loader = document.getElementById("top-loader");
+
+    // When the page first loads
+    window.addEventListener("load", () => {
+        loader.style.width = "100%";
+        setTimeout(() => loader.style.opacity = "0", 300);
+    });
+
+    // When clicking any link
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function (e) {
+            // Ignore links like "#" or same page anchors
+            if (this.getAttribute("href").startsWith("#")) return;
+
+            e.preventDefault(); // Stop instant navigation
+            loader.style.opacity = "1";
+            loader.style.width = "30%";
+
+            setTimeout(() => loader.style.width = "70%", 150);
+
+            // Go to the next page after animation
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 350);
+        });
+    });
+</script>
+
+  </body>
+</html>
