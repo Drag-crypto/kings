@@ -50,6 +50,7 @@ nav a{
 
 nav a:hover{
     background-color:var(--accent-color)
+    transform: translateY(-2px)
 }
 nav .home-link{
     margin-left: auto;
@@ -99,4 +100,5 @@ nav svg{
         left: 0;
         z-index: 9;
     }
+
 }
